@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שירותים | סקויה — דקים, פרגולות ועבודות עץ מיוחדות</title>
+  <meta name="description" content="דקי עץ, פרגולות, חיפויי קירות, גדרות עץ ודקי בריכה — כל שירותי סקויה לעיצוב חוץ ופנים. תכנון ביצוע ואחריות מלאה.">
+  <link rel="canonical" href="https://sakoya.co.il/services.html">
+  <meta property="og:title"       content="שירותים | סקויה — דקים ופרגולות">
+  <meta property="og:description" content="מגוון שירותי עץ איכותיים: דקים, פרגולות, חיפויים וגדרות.">
+  <meta property="og:image"       content="https://sakoya.co.il/og-image.jpg">
+  <link rel="icon" type="image/jpeg" href="תמונות/IMG_7262.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 72px);
+      padding-bottom: 72px;
+      background: var(--color-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 40% 50%, rgba(107,58,32,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { color: var(--color-stone); }
+    .page-hero h1 { color: #fff; margin-bottom: 16px; }
+    .page-hero p  { color: var(--color-stone); max-width: 540px; margin-inline: auto; font-size: 1.1rem; }
+
+    /* Service block alternating */
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .service-block.reverse .service-block-img { order: 2; }
+    .service-block.reverse .service-block-text { order: 1; }
+
+    .service-block-img {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-deep);
+    }
+    .service-block-img img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .service-block-img:hover img { transform: scale(1.04); }
+
+    .service-block-text .section-label { margin-bottom: 12px; }
+    .service-block-text h2 { margin-bottom: 20px; font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+    .service-block-text > p { margin-bottom: 28px; }
+
+    .service-features {
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .service-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.97rem;
+    }
+    .service-feature-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .service-feature-icon svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; }
+
+    .service-block + .service-block { margin-top: 0; }
+
+    /* Types grid */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .type-pill {
+      background: var(--color-bg2);
+      border-radius: 6px;
+      padding: 16px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      border: 1px solid var(--color-stone);
+    }
+
+    /* Separator */
+    .service-sep {
+      height: 1px;
+      background: linear-gradient(to left, transparent, var(--color-stone), transparent);
+      margin: 80px 0;
+    }
+
+    @media (max-width: 1024px) {
+      .service-block { gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .service-block { grid-template-columns: 1fr; gap: 32px; }
+      .service-block.reverse .service-block-img { order: 0; }
+      .service-block.reverse .service-block-text { order: 0; }
+      .service-block-img img { height: 300px; }
+      .types-grid { grid-template-columns: 1fr 1fr; }
+      .service-sep { margin: 48px 0; }
+    }
+    @media (max-width: 480px) {
+      .types-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <nav class="nav scrolled" role="navigation" aria-label="ניווט ראשי">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="סקויה — עמוד הבית">
+        <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" height="52" loading="eager">
+        <span class="nav-logo-name">SAKOYA</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"        class="nav-link">בית</a></li>
+        <li><a href="about.html"        class="nav-link">אודות</a></li>
+        <li><a href="services.html"     class="nav-link" aria-current="page">שירותים</a></li>
+        <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+        <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+        <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+        <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary" data-track="nav_cta_click">קבל הצעת מחיר</a>
+      </div>
+      <button class="nav-hamburger" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav id="nav-drawer" class="nav-drawer" aria-label="תפריט נייד">
+    <ul role="list">
+      <li><a href="index.html"        class="nav-link">בית</a></li>
+      <li><a href="about.html"        class="nav-link">אודות</a></li>
+      <li><a href="services.html"     class="nav-link" aria-current="page">שירותים</a></li>
+      <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+      <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+      <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+      <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary">קבל הצעת מחיר</a>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="page-hero" aria-labelledby="services-page-title">
+      <div class="container">
+        <span class="section-label" data-aos="fade-up">מה אנחנו בונים</span>
+        <h1 id="services-page-title" data-aos="fade-up" data-aos-delay="80">השירותים שלנו</h1>
+        <p data-aos="fade-up" data-aos-delay="160">כל שירות מבוצע ביד אומן, עם חומרים איכותיים ותשומת לב לכל פרט.</p>
+      </div>
+    </header>
+
+    <!-- ══ DECKS ══ -->
+    <section class="section" id="decks" aria-labelledby="decks-heading">
+      <div class="container">
+        <div class="service-block">
+          <div class="service-block-img" data-aos="fade-right">
+            <img src="תמונות/IMG-20180402-WA0049.jpg" alt="דק עץ מעוצב עם עצים ופרגולה" loading="lazy">
+          </div>
+          <div class="service-block-text" data-aos="fade-left" data-aos-delay="100">
+            <span class="section-label">שירות 01</span>
+            <h2 id="decks-heading">דקי עץ</h2>
+            <p>דק עץ הוא הדרך היפה ביותר לחבר בין הבית לגינה, לגג, למרפסת או לבריכה. אנחנו מתכננים ובונים דקים שמתאימים בדיוק לחלל, לסגנון ולשימוש — ועומדים בפני השמש, הגשם ועיני השכנים.</p>
+            <ul class="service-features" aria-label="יתרונות דקי עץ">
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>דקים לגינה, גג, מרפסת ובריכה</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>עץ טבעי, קומפוזיט ו-WPC — לפי הצורך והתקציב</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>תכנון מותאם אישית כולל מדרגות, מעקות ותאורה</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>עמידות מוכחת — טיפול ועיבוד לאורך שנים</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>אחריות מלאה על עבודה וחומרים</span>
+              </li>
+            </ul>
+            <div class="types-grid" aria-label="סוגי עצים">
+              <div class="type-pill">טיק</div>
+              <div class="type-pill">IPE</div>
+              <div class="type-pill">מרנטי</div>
+              <div class="type-pill">קומפוזיט</div>
+              <div class="type-pill">אורן מטופל</div>
+              <div class="type-pill">WPC</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;" data-track="services_decks_cta">קבל הצעת מחיר לדק</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="service-sep" aria-hidden="true"></div>
+
+    <!-- ══ PERGOLAS ══ -->
+    <section class="section" id="pergolas" aria-labelledby="pergolas-heading">
+      <div class="container">
+        <div class="service-block reverse">
+          <div class="service-block-img" data-aos="fade-left">
+            <img
+              src="תמונות/20140721_102138.jpg"
+              alt="פרגולת עץ מעוצבת עם אזור בר חיצוני ירוק"
+              loading="lazy"
+            >
+          </div>
+          <div class="service-block-text" data-aos="fade-right" data-aos-delay="100">
+            <span class="section-label">שירות 02</span>
+            <h2 id="pergolas-heading">פרגולות עץ</h2>
+            <p>פרגולה טובה משנה את כל אופי החצר. היא יוצרת צל, מגדירה מרחב ומוסיפה אופי. אנחנו מעצבים ובונים פרגולות שמשלבות יופי עם תפקודיות — ועומדות בתנאי מזג האוויר הישראלי.</p>
+            <ul class="service-features" aria-label="יתרונות פרגולות עץ">
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>פרגולות פתוחות, סגורות למחצה ועם גג נשלף</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>אפשרות לשילוב תאורה, מאוורר ומסך רוח</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>שילוב עם דק — פתרון מלא לאזור הישיבה</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>עיצוב מינימליסטי, כפרי או קלאסי — לפי בחירתך</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>עמידות גבוהה מול שמש, גשם ורוח</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;" data-track="services_pergolas_cta">קבל הצעת מחיר לפרגולה</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="service-sep" aria-hidden="true"></div>
+
+    <!-- ══ CLADDING ══ -->
+    <section class="section" id="cladding" aria-labelledby="cladding-heading">
+      <div class="container">
+        <div class="service-block">
+          <div class="service-block-img" data-aos="fade-right">
+            <img src="תמונות/MG_5925-1.jpg" alt="חיפוי קיר עץ דקורטיבי פנימי" loading="lazy">
+          </div>
+          <div class="service-block-text" data-aos="fade-left" data-aos-delay="100">
+            <span class="section-label">שירות 03</span>
+            <h2 id="cladding-heading">חיפויי עץ וגדרות</h2>
+            <p>חיפוי קיר מעץ הוא הדרך המהירה ביותר להפוך מרחב רגיל לייחודי. בין אם מדובר בקיר פנימי שרוצה טמפרטורה, גדר חיצונית שמבקשת פרטיות — יש לנו פתרון מדויק.</p>
+            <ul class="service-features" aria-label="יתרונות חיפויי עץ">
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>חיפויי קירות פנימיים וחיצוניים</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>גדרות עץ לגינה — פרטיות ואסתטיקה בו-זמנית</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>שערי עץ ושילובי עץ-מתכת מיוחדים</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>חיפויים אקוסטיים לסלון, משרד ואולמות</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>גימור איכותי עם שמן, לכה או צבע לפי בחירה</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;" data-track="services_cladding_cta">קבל הצעת מחיר לחיפוי</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="service-sep" aria-hidden="true"></div>
+
+    <!-- ══ POOL DECKS ══ -->
+    <section class="section" id="pool" aria-labelledby="pool-heading">
+      <div class="container">
+        <div class="service-block reverse">
+          <div class="service-block-img" data-aos="fade-left">
+            <img src="תמונות/IMG_0350.JPG" alt="דק בריכה מעץ עם מעקה" loading="lazy">
+          </div>
+          <div class="service-block-text" data-aos="fade-right" data-aos-delay="100">
+            <span class="section-label">שירות 04</span>
+            <h2 id="pool-heading">דקי בריכה</h2>
+            <p>דק בריכה הוא אחד הפרויקטים המורכבים ביותר — חייב להיות עמיד למים, בטיחותי, יפה ונוח. אנחנו מתמחים בדקי בריכה שנראים מדהים ומחזיקים שנים גם בסביבה לחה.</p>
+            <ul class="service-features" aria-label="יתרונות דקי בריכה">
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>עצים עמידים למים — טיק, IPE וקומפוזיט ימי</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>פני שטח אנטי-החלקה — בטיחות מרבית</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>מדרגות כניסה לבריכה משולבות בדק</span>
+              </li>
+              <li class="service-feature">
+                <span class="service-feature-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+                <span>מעקות בטיחות ועיצוב מרחב הבריכה הכולל</span>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;" data-track="services_pool_cta">קבל הצעת מחיר לדק בריכה</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <section class="cta-banner" aria-labelledby="services-cta-heading">
+      <div class="container">
+        <h2 id="services-cta-heading" data-aos="fade-up">לא בטוחים מה מתאים לכם?</h2>
+        <p data-aos="fade-up" data-aos-delay="80">נשמח לפגישת ייעוץ ראשונית ללא עלות — נבוא, נסתכל, ונציע פתרון מותאם.</p>
+        <a href="contact.html" class="btn btn-outline" data-aos="fade-up" data-aos-delay="160" data-track="services_bottom_cta">בואו נדבר</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" loading="lazy">
+          <p class="footer-brand-name">SAKOYA</p>
+          <p class="footer-tagline">פרגולות, דקים ועבודות עץ מיוחדות</p>
+          <div class="footer-social" aria-label="רשתות חברתיות">
+            <a href="#" aria-label="פייסבוק" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" aria-label="אינסטגרם" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://wa.me/972542819656" aria-label="וואטסאפ" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ניווט מהיר</h4>
+          <nav class="footer-links" aria-label="קישורים מהירים">
+            <a href="index.html">בית</a><a href="about.html">אודות</a>
+            <a href="services.html">שירותים</a><a href="gallery.html">גלריה</a>
+            <a href="process.html">תהליך העבודה</a><a href="testimonials.html">המלצות</a>
+            <a href="faq.html">שאלות נפוצות</a><a href="contact.html">צור קשר</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>יצירת קשר</h4>
+          <ul class="footer-contact-list" role="list">
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg><span><a href="tel:+972542819656" style="color:inherit;">054-281-9656</a></span></li>
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><a href="mailto:nv147502@gmail.com" style="color:inherit;">nv147502@gmail.com</a></span></li>
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>א׳–ה׳: 08:00–18:00<br>ו׳: 08:00–13:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 סקויה. כל הזכויות שמורות.</p>
+        <div class="footer-bottom-links"><a href="#">מדיניות פרטיות</a><a href="#">הצהרת נגישות</a><a href="#">תנאי שימוש</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/972542819656" class="wa-btn" aria-label="שלח הודעת וואטסאפ" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="חזור לראש העמוד"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה" tabindex="-1">
+    <button class="lightbox-close" aria-label="סגור תמונה"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <button class="lightbox-prev" aria-label="תמונה קודמת"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    <img class="lightbox-img" src="" alt="" loading="lazy">
+    <button class="lightbox-next" aria-label="תמונה הבאה"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+  </div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>המלצות | סקויה — דקים, פרגולות ועבודות עץ מיוחדות</title>
+  <meta name="description" content="מה אומרים הלקוחות שלנו? קראו המלצות אמיתיות מבעלי בתים שבנו איתנו דקים, פרגולות וחיפויי עץ.">
+  <link rel="canonical" href="https://sakoya.co.il/testimonials.html">
+  <meta property="og:title"       content="המלצות | סקויה">
+  <meta property="og:description" content="לקוחות מרוצים מספרים על החוויה שלהם עם סקויה.">
+  <meta property="og:image"       content="https://sakoya.co.il/og-image.jpg">
+  <link rel="icon" type="image/jpeg" href="תמונות/IMG_7262.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 72px);
+      padding-bottom: 72px;
+      background: var(--color-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(107,58,32,0.22) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { color: var(--color-stone); }
+    .page-hero h1 { color: #fff; margin-bottom: 16px; }
+    .page-hero p  { color: var(--color-stone); max-width: 540px; margin-inline: auto; font-size: 1.1rem; }
+
+    /* Stars */
+    .stars { display: flex; gap: 4px; margin-bottom: 20px; }
+    .star { color: #D4A853; font-size: 1.2rem; line-height: 1; }
+
+    /* Testimonials grid */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-deep);
+    }
+    .quote-mark {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--color-stone);
+      line-height: 0.6;
+      margin-bottom: 20px;
+      font-family: Georgia, serif;
+      opacity: 0.5;
+      user-select: none;
+      display: block;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      font-weight: 300;
+      color: var(--color-text);
+      flex: 1;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid var(--color-stone);
+      padding-top: 20px;
+    }
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      border: 2px solid var(--color-stone);
+    }
+    .testimonial-meta { flex: 1; }
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+    .testimonial-project {
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    .testimonial-city {
+      font-size: 0.8rem;
+      color: var(--color-text);
+      opacity: 0.55;
+      margin-top: 2px;
+    }
+
+    /* Featured testimonial */
+    .testimonial-featured {
+      background: var(--color-dark);
+      border-radius: 12px;
+      padding: 56px 64px;
+      text-align: center;
+      margin-bottom: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-featured::before {
+      content: '״';
+      position: absolute;
+      top: -20px;
+      right: 40px;
+      font-size: 12rem;
+      font-family: Georgia, serif;
+      color: rgba(107,58,32,0.2);
+      line-height: 1;
+      user-select: none;
+    }
+    .testimonial-featured .stars { justify-content: center; margin-bottom: 28px; }
+    .testimonial-featured blockquote {
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.7;
+      max-width: 740px;
+      margin-inline: auto;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-featured cite {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--color-stone);
+      font-size: 1rem;
+    }
+    .testimonial-featured .testimonial-city-feat {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    /* Stats band */
+    .review-stats {
+      background: var(--color-accent);
+      padding: 48px 0;
+      text-align: center;
+    }
+    .review-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .review-stat {
+      padding: 16px 24px;
+      border-inline-end: 1px solid rgba(255,255,255,0.25);
+    }
+    .review-stat:last-child { border-inline-end: none; }
+    .review-stat-num {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #fff;
+      display: block;
+      line-height: 1;
+    }
+    .review-stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-top: 6px; }
+
+    @media (max-width: 1024px) {
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonial-featured { padding: 36px 24px; }
+      .review-stats-grid { grid-template-columns: 1fr; }
+      .review-stat { border-inline-end: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+      .review-stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <nav class="nav scrolled" role="navigation" aria-label="ניווט ראשי">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="סקויה — עמוד הבית">
+        <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" height="52" loading="eager">
+        <span class="nav-logo-name">SAKOYA</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"        class="nav-link">בית</a></li>
+        <li><a href="about.html"        class="nav-link">אודות</a></li>
+        <li><a href="services.html"     class="nav-link">שירותים</a></li>
+        <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+        <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+        <li><a href="testimonials.html" class="nav-link" aria-current="page">המלצות</a></li>
+        <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary" data-track="nav_cta_click">קבל הצעת מחיר</a>
+      </div>
+      <button class="nav-hamburger" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav id="nav-drawer" class="nav-drawer" aria-label="תפריט נייד">
+    <ul role="list">
+      <li><a href="index.html"        class="nav-link">בית</a></li>
+      <li><a href="about.html"        class="nav-link">אודות</a></li>
+      <li><a href="services.html"     class="nav-link">שירותים</a></li>
+      <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+      <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+      <li><a href="testimonials.html" class="nav-link" aria-current="page">המלצות</a></li>
+      <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary">קבל הצעת מחיר</a>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="page-hero" aria-labelledby="testimonials-page-title">
+      <div class="container">
+        <span class="section-label" data-aos="fade-up">מה אומרים עלינו</span>
+        <h1 id="testimonials-page-title" data-aos="fade-up" data-aos-delay="80">המלצות לקוחות</h1>
+        <p data-aos="fade-up" data-aos-delay="160">98% מהלקוחות שלנו ממליצים עלינו לחברים ולמשפחה.</p>
+      </div>
+    </header>
+
+    <!-- Review stats -->
+    <div class="review-stats" aria-label="סיכום ביקורות">
+      <div class="container">
+        <div class="review-stats-grid">
+          <div class="review-stat">
+            <span class="review-stat-num">150+</span>
+            <p class="review-stat-label">פרויקטים</p>
+          </div>
+          <div class="review-stat">
+            <span class="review-stat-num">98%</span>
+            <p class="review-stat-label">שביעות רצון</p>
+          </div>
+          <div class="review-stat">
+            <span class="review-stat-num">5★</span>
+            <p class="review-stat-label">דירוג ממוצע</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <h2 id="testimonials-heading" class="section-header" style="margin-bottom:56px;">
+          <span class="section-label" style="display:block;margin-bottom:12px;">קולות מהשטח</span>
+          הלקוחות שלנו מדברים
+        </h2>
+
+        <!-- Featured -->
+        <div class="testimonial-featured" data-aos="fade-up" role="article">
+          <div class="stars" aria-label="5 כוכבים מתוך 5">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <blockquote>
+            "לא האמנתי שדק יכול לשנות כל כך את הבית. הצוות של סקויה הגיע בזמן, עבד מסודר, ומסר בדיוק מה שהובטח — ואפילו יותר יפה ממה שדמיינתי. הגג שלנו הפך למקום שאנחנו מבלים בו כל ערב."
+          </blockquote>
+          <cite>
+            רחל ודוד כהן
+            <span class="testimonial-city-feat">דק גג · תל אביב</span>
+          </cite>
+        </div>
+
+        <!-- Grid -->
+        <div class="testimonials-grid">
+
+          <article class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <div class="stars" aria-label="5 כוכבים">
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">"הפרגולה שבנו לנו שינתה לחלוטין את החצר. כל מי שמגיע שואל מי עשה — אנחנו נותנים את המספר של סקויה. מקצוענות ואדיבות ברמה אחרת."</p>
+            <div class="testimonial-footer">
+              <div class="testimonial-avatar" aria-hidden="true">מ</div>
+              <div class="testimonial-meta">
+                <p class="testimonial-name">משפחת לוי</p>
+                <p class="testimonial-project">פרגולה עם דק</p>
+                <p class="testimonial-city">הרצליה פיתוח</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-aos="fade-up" data-aos-delay="80">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <div class="stars" aria-label="5 כוכבים">
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">"דק בריכה יפהפה, עמיד ובטיחותי. השקנו כמה קבלנים — סקויה היו היחידים שהסבירו לנו בסבלנות מה ההבדלים בין הסוגים ולמה לבחור כל אחד. סמכנו עליהם ולא התאכזבנו."</p>
+            <div class="testimonial-footer">
+              <div class="testimonial-avatar" aria-hidden="true">א</div>
+              <div class="testimonial-meta">
+                <p class="testimonial-name">אורי ושיר אבני</p>
+                <p class="testimonial-project">דק בריכה</p>
+                <p class="testimonial-city">כפר שמריהו</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-aos="fade-up" data-aos-delay="160">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <div class="stars" aria-label="5 כוכבים">
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">"חיפוי קיר מעץ בסלון — זאת הייתה הדעה שלי, ולא ידעתי אם זה מעשי. הם הגיעו, הסתכלו, הציעו רעיון שלא חשבתי עליו, ויצא מדהים. אנשים שאוהבים מה שהם עושים."</p>
+            <div class="testimonial-footer">
+              <div class="testimonial-avatar" aria-hidden="true">נ</div>
+              <div class="testimonial-meta">
+                <p class="testimonial-name">נועה שרון</p>
+                <p class="testimonial-project">חיפוי עץ פנימי</p>
+                <p class="testimonial-city">רמת השרון</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <div class="stars" aria-label="5 כוכבים">
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">"ביצענו פרויקט גדול — דק + פרגולה + גדר עץ. כל שלב התקדם בצורה חלקה, בדיוק לפי הלוח. מה שהפתיע אותנו הכי הרבה — הגישה האישית. הרגשנו שזה הבית שלהם."</p>
+            <div class="testimonial-footer">
+              <div class="testimonial-avatar" aria-hidden="true">ד</div>
+              <div class="testimonial-meta">
+                <p class="testimonial-name">דן ומרב גולן</p>
+                <p class="testimonial-project">דק + פרגולה + גדר</p>
+                <p class="testimonial-city">מודיעין</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-aos="fade-up" data-aos-delay="80">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <div class="stars" aria-label="5 כוכבים">
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">"הזמנתי הצעת מחיר ולא ציפיתי להרבה. קיבלתי פגישה אישית, תכנון מפורט ומחיר הוגן. הדק יצא מדהים — חברים שואלים כל הזמן מי עשה."</p>
+            <div class="testimonial-footer">
+              <div class="testimonial-avatar" aria-hidden="true">ת</div>
+              <div class="testimonial-meta">
+                <p class="testimonial-name">תמר אלוני</p>
+                <p class="testimonial-project">דק מרפסת</p>
+                <p class="testimonial-city">פתח תקווה</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card" data-aos="fade-up" data-aos-delay="160">
+            <span class="quote-mark" aria-hidden="true">"</span>
+            <div class="stars" aria-label="5 כוכבים">
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+              <span class="star" aria-hidden="true">★</span>
+            </div>
+            <p class="testimonial-text">"גדר עץ לגינה — נשמע פשוט, אבל הם הפכו אותה ליצירת אמנות. התאימו את העיצוב לסגנון הבית, הוסיפו פרטים קטנים שלא ביקשתי אבל בדיוק רציתי. שירות מעל ומעבר."</p>
+            <div class="testimonial-footer">
+              <div class="testimonial-avatar" aria-hidden="true">י</div>
+              <div class="testimonial-meta">
+                <p class="testimonial-name">יונתן פרידמן</p>
+                <p class="testimonial-project">גדר עץ מעוצבת</p>
+                <p class="testimonial-city">רעננה</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner" aria-labelledby="testimonials-cta-heading">
+      <div class="container">
+        <h2 id="testimonials-cta-heading" data-aos="fade-up">הצטרפו למאות לקוחות מרוצים</h2>
+        <p data-aos="fade-up" data-aos-delay="80">קבעו פגישת ייעוץ ראשונית ללא עלות — ותראו בעצמכם.</p>
+        <a href="contact.html" class="btn btn-outline" data-aos="fade-up" data-aos-delay="160" data-track="testimonials_cta">קבל הצעת מחיר</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" loading="lazy">
+          <p class="footer-brand-name">SAKOYA</p>
+          <p class="footer-tagline">פרגולות, דקים ועבודות עץ מיוחדות</p>
+          <div class="footer-social" aria-label="רשתות חברתיות">
+            <a href="#" aria-label="פייסבוק" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" aria-label="אינסטגרם" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://wa.me/972542819656" aria-label="וואטסאפ" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ניווט מהיר</h4>
+          <nav class="footer-links" aria-label="קישורים מהירים">
+            <a href="index.html">בית</a><a href="about.html">אודות</a>
+            <a href="services.html">שירותים</a><a href="gallery.html">גלריה</a>
+            <a href="process.html">תהליך העבודה</a><a href="testimonials.html">המלצות</a>
+            <a href="faq.html">שאלות נפוצות</a><a href="contact.html">צור קשר</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>יצירת קשר</h4>
+          <ul class="footer-contact-list" role="list">
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg><span><a href="tel:+972542819656" style="color:inherit;">054-281-9656</a></span></li>
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><a href="mailto:nv147502@gmail.com" style="color:inherit;">nv147502@gmail.com</a></span></li>
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>א׳–ה׳: 08:00–18:00<br>ו׳: 08:00–13:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 סקויה. כל הזכויות שמורות.</p>
+        <div class="footer-bottom-links"><a href="#">מדיניות פרטיות</a><a href="#">הצהרת נגישות</a><a href="#">תנאי שימוש</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/972542819656" class="wa-btn" aria-label="שלח הודעת וואטסאפ" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="חזור לראש העמוד"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

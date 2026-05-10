@@ -1,0 +1,780 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>גלריה | סקויה — דקים, פרגולות ועבודות עץ מיוחדות</title>
+  <meta name="description" content="גלריית פרויקטים של סקויה — דקים, פרגולות, חיפויי עץ, גדרות ודקי בריכה. צפו בעבודות שלנו ותתרשמו מהאיכות והיצירתיות.">
+  <link rel="canonical" href="https://sakoya.co.il/gallery.html">
+  <meta property="og:title"       content="גלריה | סקויה — עבודות עץ">
+  <meta property="og:description" content="פרויקטים של דקים, פרגולות וחיפויי עץ — צפו בגלריה המלאה.">
+  <meta property="og:image"       content="https://sakoya.co.il/og-image.jpg">
+  <link rel="icon" type="image/jpeg" href="תמונות/IMG_7262.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 72px);
+      padding-bottom: 72px;
+      background: var(--color-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(107,58,32,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { color: var(--color-stone); }
+    .page-hero h1 { color: #fff; margin-bottom: 16px; }
+    .page-hero p  { color: var(--color-stone); max-width: 540px; margin-inline: auto; font-size: 1.1rem; }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .filter-btn {
+      padding: 10px 26px;
+      border-radius: 50px;
+      border: 2px solid var(--color-stone);
+      background: transparent;
+      color: var(--color-text);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+      min-height: 44px;
+    }
+    .filter-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .filter-btn.active {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #fff;
+    }
+
+    /* Masonry grid */
+    .masonry {
+      columns: 3;
+      column-gap: 16px;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+    }
+    .masonry-item.hidden {
+      display: none;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .masonry-item:hover img { transform: scale(1.06); }
+    .masonry-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(36,21,8,0.65);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+    .masonry-item:hover .masonry-overlay,
+    .masonry-item:focus .masonry-overlay { opacity: 1; }
+    .masonry-caption {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      transform: translateY(12px);
+      transition: transform 0.4s ease;
+    }
+    .masonry-tag {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--color-stone);
+      margin-top: 4px;
+      transform: translateY(12px);
+      transition: transform 0.4s ease 0.04s;
+    }
+    .masonry-item:hover .masonry-caption,
+    .masonry-item:hover .masonry-tag { transform: translateY(0); }
+
+    .masonry-item:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+    /* Count display */
+    .gallery-count {
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+      color: var(--color-text);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 1024px) { .masonry { columns: 2; } }
+    @media (max-width: 600px)  { .masonry { columns: 1; } }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <nav class="nav scrolled" role="navigation" aria-label="ניווט ראשי">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="סקויה — עמוד הבית">
+        <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" height="52" loading="eager">
+        <span class="nav-logo-name">SAKOYA</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"        class="nav-link">בית</a></li>
+        <li><a href="about.html"        class="nav-link">אודות</a></li>
+        <li><a href="services.html"     class="nav-link">שירותים</a></li>
+        <li><a href="gallery.html"      class="nav-link" aria-current="page">גלריה</a></li>
+        <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+        <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+        <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary" data-track="nav_cta_click">קבל הצעת מחיר</a>
+      </div>
+      <button class="nav-hamburger" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav id="nav-drawer" class="nav-drawer" aria-label="תפריט נייד">
+    <ul role="list">
+      <li><a href="index.html"        class="nav-link">בית</a></li>
+      <li><a href="about.html"        class="nav-link">אודות</a></li>
+      <li><a href="services.html"     class="nav-link">שירותים</a></li>
+      <li><a href="gallery.html"      class="nav-link" aria-current="page">גלריה</a></li>
+      <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+      <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+      <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary">קבל הצעת מחיר</a>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="page-hero" aria-labelledby="gallery-page-title">
+      <div class="container">
+        <span class="section-label" data-aos="fade-up">הפרויקטים שלנו</span>
+        <h1 id="gallery-page-title" data-aos="fade-up" data-aos-delay="80">הגלריה שלנו</h1>
+        <p data-aos="fade-up" data-aos-delay="160">כל תמונה מספרת סיפור של פרויקט שנעשה ביד אומן ובאהבה.</p>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="gallery-grid-label">
+      <div class="container">
+        <h2 id="gallery-grid-label" class="sr-only">תמונות גלריה</h2>
+
+        <!-- Filter -->
+        <div class="filter-bar" role="group" aria-label="סינון לפי קטגוריה">
+          <button class="filter-btn active" data-filter="all"   aria-pressed="true">הכל</button>
+          <button class="filter-btn"        data-filter="decks" aria-pressed="false">דקים</button>
+          <button class="filter-btn"        data-filter="pergolas" aria-pressed="false">פרגולות</button>
+          <button class="filter-btn"        data-filter="cladding" aria-pressed="false">חיפויים וגדרות</button>
+          <button class="filter-btn"        data-filter="pool"  aria-pressed="false">בריכות</button>
+        </div>
+
+        <p class="gallery-count" aria-live="polite" id="gallery-count">מציג 39 פרויקטים</p>
+
+        <!-- Masonry -->
+        <div class="masonry" id="masonry-grid">
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20150710_093904.jpg"
+               data-alt="דק גג עם נוף לתל אביב"
+               aria-label="הצג תמונה: דק גג תל אביב">
+            <img src="תמונות/20150710_093904.jpg"
+                 alt="דק גג עץ עם נוף פנורמי לתל אביב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק גג תל אביב</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20150710_094515.jpg"
+               data-alt="דק גג עם שולחן אירוח"
+               aria-label="הצג תמונה: דק גג עם שולחן אירוח">
+            <img src="תמונות/20150710_094515.jpg"
+                 alt="דק גג עם שולחן אירוח ונוף" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">גג + שולחן אירוח</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG-20180402-WA0049.jpg"
+               data-alt="דק עם עצים ופרגולה"
+               aria-label="הצג תמונה: דק עם עצים">
+            <img src="תמונות/IMG-20180402-WA0049.jpg"
+                 alt="דק עץ עם עצים ופרגולה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם עצים</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/20140721_102138.jpg"
+               data-alt="פרגולה עם בר חיצוני"
+               aria-label="הצג תמונה: פרגולה עם בר">
+            <img src="תמונות/20140721_102138.jpg"
+                 alt="פרגולת עץ מעוצבת עם אזור בר חיצוני" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה עם בר</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pool" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0350.JPG"
+               data-alt="דק בריכה עם מעקה עץ"
+               aria-label="הצג תמונה: דק בריכה עם מעקה">
+            <img src="תמונות/IMG_0350.JPG"
+                 alt="דק בריכה עם מעקה עץ" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק בריכה עם מעקה</p>
+              <p class="masonry-tag">בריכות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pool" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0349.JPG"
+               data-alt="דק עם ג'קוזי ונוף פנורמי"
+               aria-label="הצג תמונה: דק עם ג'קוזי">
+            <img src="תמונות/IMG_0349.JPG"
+                 alt="דק פרטי עם ג'קוזי ונוף פנורמי" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם ג'קוזי</p>
+              <p class="masonry-tag">בריכות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pool" role="button" tabindex="0"
+               data-lightbox="תמונות/brixa.jpg"
+               data-alt="בריכה עם דק ומדרגות עץ"
+               aria-label="הצג תמונה: בריכה עם דק">
+            <img src="תמונות/brixa.jpg"
+                 alt="בריכה עם דק עץ ומדרגות" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">בריכה עם דק</p>
+              <p class="masonry-tag">בריכות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20141212_160831.jpg"
+               data-alt="דק עם עציצים ועיצוב ירוק"
+               aria-label="הצג תמונה: דק עם עציצים">
+            <img src="תמונות/20141212_160831.jpg"
+                 alt="דק עץ עם עציצים ירוקים" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם עציצים</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/MG_5925-1.jpg"
+               data-alt="חיפוי עץ פנימי דקורטיבי"
+               aria-label="הצג תמונה: חיפוי עץ פנימי">
+            <img src="תמונות/MG_5925-1.jpg"
+                 alt="חיפוי קיר עץ דקורטיבי פנימי" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">חיפוי עץ פנימי</p>
+              <p class="masonry-tag">חיפויים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/shaar.jpg"
+               data-alt="שער פנימי ממתכת ועץ איפאה"
+               aria-label="הצג תמונה: שער עץ ומתכת">
+            <img src="תמונות/shaar.jpg"
+                 alt="שער פנימי ממתכת ועץ איפאה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">שער עץ ומתכת</p>
+              <p class="masonry-tag">חיפויים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/gader.jpg"
+               data-alt="גדר עץ מעוצבת עם צמחייה"
+               aria-label="הצג תמונה: גדר עץ מעוצבת">
+            <img src="תמונות/gader.jpg"
+                 alt="גדר עץ מעוצבת עם צמחייה ירוקה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">גדר עץ מעוצבת</p>
+              <p class="masonry-tag">גדרות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/20140429_085534.jpg"
+               data-alt="גדר עץ עם דשא ירוק"
+               aria-label="הצג תמונה: גדר עץ עם דשא">
+            <img src="תמונות/20140429_085534.jpg"
+                 alt="גדר עץ עם דשא ירוק" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">גדר עץ עם דשא</p>
+              <p class="masonry-tag">גדרות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/FB_IMG_1505566587847.jpg"
+               data-alt="דק עם עציצים ועיצוב"
+               aria-label="הצג תמונה: דק עם עציצים">
+            <img src="תמונות/FB_IMG_1505566587847.jpg"
+                 alt="דק עץ עם עציצים מעוצבים" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם עיצוב ירוק</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20140424_164059.jpg"
+               data-alt="דק עץ מעוצב בחצר"
+               aria-label="הצג תמונה: דק עץ בחצר">
+            <img src="תמונות/20140424_164059.jpg"
+                 alt="דק עץ מעוצב בחצר פרטית" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק חצר פרטית</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/20140429_085620.jpg"
+               data-alt="גדר עץ עם גינה"
+               aria-label="הצג תמונה: גדר עץ">
+            <img src="תמונות/20140429_085620.jpg"
+                 alt="גדר עץ עם גינה ירוקה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">גדר עם גינה</p>
+              <p class="masonry-tag">גדרות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/20140429_085852.jpg"
+               data-alt="גדר עץ מעוצבת"
+               aria-label="הצג תמונה: גדר עץ">
+            <img src="תמונות/20140429_085852.jpg"
+                 alt="גדר עץ מעוצבת בגינה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">גדר עץ מעוצבת</p>
+              <p class="masonry-tag">גדרות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/20140721_102325.jpg"
+               data-alt="פרגולה עם ישיבה חיצונית"
+               aria-label="הצג תמונה: פרגולה עם ישיבה">
+            <img src="תמונות/20140721_102325.jpg"
+                 alt="פרגולת עץ עם פינת ישיבה חיצונית" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה עם ישיבה</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20141002_154123.jpg"
+               data-alt="דק עץ עם נוף"
+               aria-label="הצג תמונה: דק עם נוף">
+            <img src="תמונות/20141002_154123.jpg"
+                 alt="דק עץ עם נוף פנורמי" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם נוף</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pool" role="button" tabindex="0"
+               data-lightbox="תמונות/brixa2.jpg"
+               data-alt="בריכה עם דק ועיצוב"
+               aria-label="הצג תמונה: בריכה עם דק">
+            <img src="תמונות/brixa2.jpg"
+                 alt="בריכה עם דק עץ מעוצב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">בריכה עם דק</p>
+              <p class="masonry-tag">בריכות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20160131_161630.jpg"
+               data-alt="דק עץ חיצוני"
+               aria-label="הצג תמונה: דק עץ חיצוני">
+            <img src="תמונות/20160131_161630.jpg"
+                 alt="דק עץ חיצוני מעוצב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק חיצוני</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20160131_162046.jpg"
+               data-alt="דק עץ עם פינת ישיבה"
+               aria-label="הצג תמונה: דק עם ישיבה">
+            <img src="תמונות/20160131_162046.jpg"
+                 alt="דק עץ עם פינת ישיבה חיצונית" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם פינת ישיבה</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/20160417_121432.jpg"
+               data-alt="פרגולה מעוצבת"
+               aria-label="הצג תמונה: פרגולה מעוצבת">
+            <img src="תמונות/20160417_121432.jpg"
+                 alt="פרגולת עץ מעוצבת בגינה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה מעוצבת</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/20160417_121458.jpg"
+               data-alt="פרגולה עם תאורה"
+               aria-label="הצג תמונה: פרגולה עם תאורה">
+            <img src="תמונות/20160417_121458.jpg"
+                 alt="פרגולת עץ עם תאורה ועיצוב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה עם תאורה</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/20160417_121528.jpg"
+               data-alt="פרגולה עם אזור אירוח"
+               aria-label="הצג תמונה: פרגולה עם אירוח">
+            <img src="תמונות/20160417_121528.jpg"
+                 alt="פרגולת עץ עם אזור אירוח חיצוני" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה עם אירוח</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/20161207_075832.jpg"
+               data-alt="דק עץ עם נוף"
+               aria-label="הצג תמונה: דק עץ">
+            <img src="תמונות/20161207_075832.jpg"
+                 alt="דק עץ מעוצב עם נוף" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם נוף</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/C_gl8x4prf.jpg"
+               data-alt="פרויקט עץ מעוצב"
+               aria-label="הצג תמונה: פרויקט עץ">
+            <img src="תמונות/C_gl8x4prf.jpg"
+                 alt="פרויקט עץ מעוצב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרויקט מעוצב</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0199.JPG"
+               data-alt="דק עץ מעוצב"
+               aria-label="הצג תמונה: דק עץ">
+            <img src="תמונות/IMG_0199.JPG"
+                 alt="דק עץ מעוצב בגינה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק מעוצב</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pool" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0245.JPG"
+               data-alt="דק בריכה עם ישיבה"
+               aria-label="הצג תמונה: דק בריכה">
+            <img src="תמונות/IMG_0245.JPG"
+                 alt="דק בריכה עם פינת ישיבה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק בריכה</p>
+              <p class="masonry-tag">בריכות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pool" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0254.JPG"
+               data-alt="בריכה עם דק עץ"
+               aria-label="הצג תמונה: בריכה ודק">
+            <img src="תמונות/IMG_0254.JPG"
+                 alt="בריכה עם דק עץ" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">בריכה ודק</p>
+              <p class="masonry-tag">בריכות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pool" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0258.JPG"
+               data-alt="דק בריכה פרטית"
+               aria-label="הצג תמונה: דק בריכה">
+            <img src="תמונות/IMG_0258.JPG"
+                 alt="דק בריכה פרטי עם עיצוב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק בריכה פרטית</p>
+              <p class="masonry-tag">בריכות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0271.JPG"
+               data-alt="פרגולה בגינה פרטית"
+               aria-label="הצג תמונה: פרגולה פרטית">
+            <img src="תמונות/IMG_0271.JPG"
+                 alt="פרגולת עץ בגינה פרטית" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה פרטית</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0501.JPG"
+               data-alt="דק עץ עם גינה"
+               aria-label="הצג תמונה: דק עם גינה">
+            <img src="תמונות/IMG_0501.JPG"
+                 alt="דק עץ עם גינה מעוצבת" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם גינה</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG_0569.JPG"
+               data-alt="חיפוי עץ מעוצב"
+               aria-label="הצג תמונה: חיפוי עץ">
+            <img src="תמונות/IMG_0569.JPG"
+                 alt="חיפוי עץ דקורטיבי מעוצב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">חיפוי עץ</p>
+              <p class="masonry-tag">חיפויים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG-20141125-WA0014.jpg"
+               data-alt="דק עץ פרויקט"
+               aria-label="הצג תמונה: דק עץ">
+            <img src="תמונות/IMG-20141125-WA0014.jpg"
+                 alt="דק עץ מעוצב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק מעוצב</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG-20141125-WA0018.jpg"
+               data-alt="דק עץ עם נוף"
+               aria-label="הצג תמונה: דק עם נוף">
+            <img src="תמונות/IMG-20141125-WA0018.jpg"
+                 alt="דק עץ עם נוף וישיבה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק עם נוף</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG-20141125-WA0019.jpg"
+               data-alt="פרגולה עם עיצוב"
+               aria-label="הצג תמונה: פרגולה">
+            <img src="תמונות/IMG-20141125-WA0019.jpg"
+                 alt="פרגולת עץ עם עיצוב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה מעוצבת</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="pergolas" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG-20141125-WA0021.jpg"
+               data-alt="פרגולה עם ישיבה"
+               aria-label="הצג תמונה: פרגולה עם ישיבה">
+            <img src="תמונות/IMG-20141125-WA0021.jpg"
+                 alt="פרגולת עץ עם פינת ישיבה" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">פרגולה עם ישיבה</p>
+              <p class="masonry-tag">פרגולות</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="decks" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG-20150203-WA0007.jpg"
+               data-alt="דק עץ מעוצב"
+               aria-label="הצג תמונה: דק עץ">
+            <img src="תמונות/IMG-20150203-WA0007.jpg"
+                 alt="דק עץ מעוצב בחצר" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">דק מעוצב</p>
+              <p class="masonry-tag">דקים</p>
+            </div>
+          </div>
+
+          <div class="masonry-item" data-category="cladding" role="button" tabindex="0"
+               data-lightbox="תמונות/IMG-20170518-WA0044.jpg"
+               data-alt="חיפוי עץ או גדר"
+               aria-label="הצג תמונה: חיפוי עץ">
+            <img src="תמונות/IMG-20170518-WA0044.jpg"
+                 alt="חיפוי עץ מעוצב" loading="lazy">
+            <div class="masonry-overlay" aria-hidden="true">
+              <p class="masonry-caption">חיפוי עץ</p>
+              <p class="masonry-tag">חיפויים</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner" aria-labelledby="gallery-cta-heading">
+      <div class="container">
+        <h2 id="gallery-cta-heading" data-aos="fade-up">רוצים פרויקט כזה?</h2>
+        <p data-aos="fade-up" data-aos-delay="80">נשמח לשמוע על הרעיון שלכם ולהפוך אותו למציאות.</p>
+        <a href="contact.html" class="btn btn-outline" data-aos="fade-up" data-aos-delay="160" data-track="gallery_cta">צור קשר</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" loading="lazy">
+          <p class="footer-brand-name">SAKOYA</p>
+          <p class="footer-tagline">פרגולות, דקים ועבודות עץ מיוחדות</p>
+          <div class="footer-social" aria-label="רשתות חברתיות">
+            <a href="#" aria-label="פייסבוק" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" aria-label="אינסטגרם" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://wa.me/972542819656" aria-label="וואטסאפ" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ניווט מהיר</h4>
+          <nav class="footer-links" aria-label="קישורים מהירים">
+            <a href="index.html">בית</a><a href="about.html">אודות</a>
+            <a href="services.html">שירותים</a><a href="gallery.html">גלריה</a>
+            <a href="process.html">תהליך העבודה</a><a href="testimonials.html">המלצות</a>
+            <a href="faq.html">שאלות נפוצות</a><a href="contact.html">צור קשר</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>יצירת קשר</h4>
+          <ul class="footer-contact-list" role="list">
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg><span><a href="tel:+972542819656" style="color:inherit;">054-281-9656</a></span></li>
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><a href="mailto:nv147502@gmail.com" style="color:inherit;">nv147502@gmail.com</a></span></li>
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>א׳–ה׳: 08:00–18:00<br>ו׳: 08:00–13:00</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 סקויה. כל הזכויות שמורות.</p>
+        <div class="footer-bottom-links"><a href="#">מדיניות פרטיות</a><a href="#">הצהרת נגישות</a><a href="#">תנאי שימוש</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/972542819656" class="wa-btn" aria-label="שלח הודעת וואטסאפ" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="חזור לראש העמוד"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה" tabindex="-1">
+    <button class="lightbox-close" aria-label="סגור תמונה"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <button class="lightbox-prev" aria-label="תמונה קודמת"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    <img class="lightbox-img" src="" alt="" loading="lazy">
+    <button class="lightbox-next" aria-label="תמונה הבאה"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+  </div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="main.js" defer></script>
+  <script>
+    // Gallery filter
+    document.addEventListener('DOMContentLoaded', () => {
+      const btns  = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.masonry-item');
+      const count = document.getElementById('gallery-count');
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed','true');
+
+          const filter = btn.dataset.filter;
+          let visible = 0;
+          items.forEach(item => {
+            const match = filter === 'all' || item.dataset.category === filter;
+            item.classList.toggle('hidden', !match);
+            if (match) visible++;
+          });
+          count.textContent = `מציג ${visible} פרויקטים`;
+        });
+      });
+
+      // Keyboard support for masonry items (handled in main.js lightbox)
+      items.forEach(item => {
+        item.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            item.click();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

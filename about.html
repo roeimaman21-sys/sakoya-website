@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אודות | סקויה — דקים, פרגולות ועבודות עץ מיוחדות</title>
+  <meta name="description" content="הכירו את סקויה — 12 שנות ניסיון בבניית דקים, פרגולות וחיפויי עץ. הסיפור שלנו, הערכים שלנו, והאנשים שמאחורי כל פרויקט.">
+  <link rel="canonical" href="https://sakoya.co.il/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://sakoya.co.il/about.html">
+  <meta property="og:title"       content="אודות סקויה — 12 שנות ניסיון בעבודות עץ">
+  <meta property="og:description" content="הסיפור שלנו, הערכים שמניעים אותנו, ולמה 150+ לקוחות בחרו בסקויה.">
+  <meta property="og:image"       content="https://sakoya.co.il/og-image.jpg">
+
+  <link rel="icon" type="image/jpeg" href="תמונות/IMG_7262.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <style>
+    /* ── Page hero (small) ── */
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 72px);
+      padding-bottom: 72px;
+      background: var(--color-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(107,58,32,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero .section-label { color: var(--color-stone); }
+    .page-hero h1 { color: #fff; margin-bottom: 16px; }
+    .page-hero p  { color: var(--color-stone); max-width: 540px; margin-inline: auto; font-size: 1.1rem; }
+
+    /* ── Story section ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-text .section-label { margin-bottom: 14px; }
+    .story-text h2 { margin-bottom: 24px; }
+    .story-text p  { margin-bottom: 18px; font-size: 1.05rem; }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-img-wrap {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-deep);
+    }
+    .story-img-wrap img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+    .story-img-badge {
+      position: absolute;
+      bottom: 28px;
+      right: 28px;
+      background: var(--color-accent);
+      color: #fff;
+      padding: 18px 24px;
+      border-radius: 6px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(107,58,32,0.4);
+    }
+    .story-img-badge strong {
+      display: block;
+      font-size: 2.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .story-img-badge span { font-size: 0.85rem; font-weight: 300; opacity: 0.9; }
+
+    /* ── Values ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .value-card {
+      background: var(--color-bg);
+      border-radius: 8px;
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-top: 3px solid var(--color-accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-deep);
+    }
+    .value-num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--color-stone);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .value-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .value-card p  { font-size: 0.9rem; opacity: 0.72; line-height: 1.7; }
+
+    /* ── Timeline ── */
+    .timeline { position: relative; padding: 0; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 50%;
+      transform: translateX(50%);
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-stone));
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-content {
+      padding: 0 36px;
+    }
+    .timeline-content.right { text-align: left; }
+    .timeline-content.left  { text-align: right; grid-column: 3; }
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      border: 4px solid var(--color-bg2);
+      margin: 4px auto 0;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-year {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .timeline-content h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .timeline-content p  { font-size: 0.9rem; opacity: 0.7; line-height: 1.65; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .story-img-wrap img { height: 340px; }
+      .values-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .value-card { padding: 24px 20px; }
+      .timeline::before { right: 20px; transform: none; }
+      .timeline-item { grid-template-columns: 40px 1fr; gap: 16px; }
+      .timeline-dot { margin: 4px 0 0; }
+      .timeline-content { padding: 0; }
+      .timeline-content.right { grid-column: 2; text-align: right; }
+      .timeline-content.left  { grid-column: 2; text-align: right; }
+    }
+    @media (max-width: 480px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <!-- ══ NAVIGATION ══ -->
+  <nav class="nav scrolled" role="navigation" aria-label="ניווט ראשי">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="סקויה — עמוד הבית">
+        <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" height="52" loading="eager">
+        <span class="nav-logo-name">SAKOYA</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"        class="nav-link">בית</a></li>
+        <li><a href="about.html"        class="nav-link" aria-current="page">אודות</a></li>
+        <li><a href="services.html"     class="nav-link">שירותים</a></li>
+        <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+        <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+        <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+        <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary" data-track="nav_cta_click">קבל הצעת מחיר</a>
+      </div>
+      <button class="nav-hamburger" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav id="nav-drawer" class="nav-drawer" aria-label="תפריט נייד">
+    <ul role="list">
+      <li><a href="index.html"        class="nav-link">בית</a></li>
+      <li><a href="about.html"        class="nav-link" aria-current="page">אודות</a></li>
+      <li><a href="services.html"     class="nav-link">שירותים</a></li>
+      <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+      <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+      <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+      <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary">קבל הצעת מחיר</a>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ══ PAGE HERO ══ -->
+    <header class="page-hero" aria-labelledby="about-page-title">
+      <div class="container">
+        <span class="section-label" data-aos="fade-up">הסיפור שלנו</span>
+        <h1 id="about-page-title" data-aos="fade-up" data-aos-delay="80">אודות סקויה</h1>
+        <p data-aos="fade-up" data-aos-delay="160">
+          12 שנות ניסיון, מאות פרויקטים, ואהבה אחת גדולה לעץ.
+        </p>
+      </div>
+    </header>
+
+    <!-- ══ STORY ══ -->
+    <section class="section" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="story-grid">
+
+          <!-- Image side -->
+          <div data-aos="fade-right">
+            <div class="story-img-wrap">
+              <img
+                src="תמונות/20150710_093904.jpg"
+                alt="דק גג מרשים עם נוף לתל אביב — אחד מהפרויקטים של סקויה"
+                loading="lazy"
+              >
+              <div class="story-img-badge" aria-label="12 שנות ניסיון">
+                <strong>12</strong>
+                <span>שנות ניסיון</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text side -->
+          <div class="story-text" data-aos="fade-left" data-aos-delay="100">
+            <span class="section-label">מי אנחנו</span>
+            <h2 id="story-heading">עץ זה לא רק חומר — זה שפה</h2>
+            <p>
+              סקויה נוסדה לפני למעלה מ-12 שנים מתוך אהבה אמיתית לעץ ולמה שאפשר לעשות איתו. מאז ביצענו מעל 150 פרויקטים — דקים, פרגולות, חיפויי קירות, גדרות ודקי בריכה — ברחבי הארץ.
+            </p>
+            <p>
+              אנחנו מאמינים שכל חלל מחוץ לבית הוא הזדמנות — לאזור מנוחה, לשולחן אירוח, לפינת שתייה שקטה. התפקיד שלנו הוא לקחת את החזון שלך ולהפוך אותו למציאות של עץ, שיחזיק שנים ויגרום לך להתאהב בו מחדש כל פעם מחדש.
+            </p>
+            <p>
+              כל פרויקט מתחיל עם פגישה — אנחנו שומעים, מציעים, ומתכננים יחד. אנחנו לא בונים "עוד דק" — אנחנו בונים את הדק שלך.
+            </p>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:12px;" data-track="about_cta_click">
+              קבל הצעת מחיר ללא עלות
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ STATS BAND ══ -->
+    <section class="stats section-sm section-alt" aria-label="נתוני החברה">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+            <span class="stat-number" data-target="150">0</span><span class="stat-suffix">+</span>
+            <p class="stat-label">פרויקטים הושלמו</p>
+          </div>
+          <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+            <span class="stat-number" data-target="12">0</span>
+            <p class="stat-label">שנות ניסיון</p>
+          </div>
+          <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+            <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+            <p class="stat-label">לקוחות מרוצים</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VALUES ══ -->
+    <section class="section section-alt" aria-labelledby="values-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">מה מניע אותנו</span>
+          <h2 id="values-heading">הערכים שלנו</h2>
+          <p>ארבעת העקרונות שמנחים כל החלטה שאנחנו מקבלים — מהתכנון ועד המסירה.</p>
+        </div>
+
+        <div class="values-grid">
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="value-num" aria-hidden="true">01</div>
+            <h3>איכות ללא פשרות</h3>
+            <p>אנחנו בוחרים את החומרים הטובים ביותר — עצים עמידים, חיבורים מדויקים, גימור שמדבר בעד עצמו. לא קיצורי דרך.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="value-num" aria-hidden="true">02</div>
+            <h3>שקיפות מלאה</h3>
+            <p>הצעת מחיר ברורה, לוח זמנים מוסכם, ועדכונים שוטפים. תמיד תדע מה קורה ומה עולה — ללא הפתעות.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="160">
+            <div class="value-num" aria-hidden="true">03</div>
+            <h3>עיצוב שמותאם לך</h3>
+            <p>כל לקוח שונה, כל חלל שונה. אנחנו לא מוכרים תבניות — אנחנו מתכננים פתרון שמתאים בדיוק לצרכים, לסגנון ולתקציב שלך.</p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="240">
+            <div class="value-num" aria-hidden="true">04</div>
+            <h3>שירות גם אחרי</h3>
+            <p>הקשר שלנו לא נגמר ביום המסירה. אחריות מלאה, ייעוץ תחזוקה, ופתרון כל בעיה — כי הלקוחות שלנו הם שגרירים שלנו.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TIMELINE ══ -->
+    <section class="section" aria-labelledby="timeline-heading">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">הדרך שעשינו</span>
+          <h2 id="timeline-heading">ציר הזמן שלנו</h2>
+          <p>מהתחלה הצנועה ועד היום — כל שלב עיצב את מי שאנחנו.</p>
+        </div>
+
+        <div class="timeline" role="list">
+
+          <div class="timeline-item" role="listitem" data-aos="fade-up">
+            <div class="timeline-content right">
+              <p class="timeline-year">2012</p>
+              <h3>ההתחלה</h3>
+              <p>הפרויקט הראשון — דק קטן בחצר פרטית בתל אביב. מאז לא עצרנו.</p>
+            </div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div></div>
+          </div>
+
+          <div class="timeline-item" role="listitem" data-aos="fade-up">
+            <div></div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content left">
+              <p class="timeline-year">2015</p>
+              <h3>הרחבת הפעילות</h3>
+              <p>פרגולות ראשונות, כניסה לפרויקטים מסחריים ושותפות עם אדריכלי נוף.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem" data-aos="fade-up">
+            <div class="timeline-content right">
+              <p class="timeline-year">2018</p>
+              <h3>100 פרויקטים</h3>
+              <p>אבן דרך משמעותית — 100 פרויקטים הושלמו עם שביעות רצון מלאה.</p>
+            </div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div></div>
+          </div>
+
+          <div class="timeline-item" role="listitem" data-aos="fade-up">
+            <div></div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content left">
+              <p class="timeline-year">2021</p>
+              <h3>חיפויי עץ ודקי בריכה</h3>
+              <p>הרחבת שירותים לחיפויי קירות, דקי בריכה ושערי עץ מיוחדים.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem" data-aos="fade-up">
+            <div class="timeline-content right">
+              <p class="timeline-year">2024–25</p>
+              <h3>היום</h3>
+              <p>150+ פרויקטים, צוות מנוסה, ועוד עשרות פרויקטים בתכנון.</p>
+            </div>
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <section class="cta-banner" aria-labelledby="about-cta-heading">
+      <div class="container">
+        <h2 id="about-cta-heading" data-aos="fade-up">רוצים להיות חלק מהסיפור?</h2>
+        <p data-aos="fade-up" data-aos-delay="80">בואו נדבר על הפרויקט שלכם — ייעוץ ראשוני ללא עלות.</p>
+        <a href="contact.html" class="btn btn-outline" data-aos="fade-up" data-aos-delay="160" data-track="about_bottom_cta">צור קשר</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" loading="lazy">
+          <p class="footer-brand-name">SAKOYA</p>
+          <p class="footer-tagline">פרגולות, דקים ועבודות עץ מיוחדות</p>
+          <div class="footer-social" aria-label="רשתות חברתיות">
+            <a href="#" aria-label="פייסבוק" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="אינסטגרם" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://wa.me/972542819656" aria-label="וואטסאפ" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ניווט מהיר</h4>
+          <nav class="footer-links" aria-label="קישורים מהירים">
+            <a href="index.html">בית</a>
+            <a href="about.html">אודות</a>
+            <a href="services.html">שירותים</a>
+            <a href="gallery.html">גלריה</a>
+            <a href="process.html">תהליך העבודה</a>
+            <a href="testimonials.html">המלצות</a>
+            <a href="faq.html">שאלות נפוצות</a>
+            <a href="contact.html">צור קשר</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>יצירת קשר</h4>
+          <ul class="footer-contact-list" role="list">
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><a href="tel:+972542819656" style="color:inherit;">054-281-9656</a></span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span><a href="mailto:nv147502@gmail.com" style="color:inherit;">nv147502@gmail.com</a></span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>א׳–ה׳: 08:00–18:00<br>ו׳: 08:00–13:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 סקויה. כל הזכויות שמורות.</p>
+        <div class="footer-bottom-links">
+          <a href="#">מדיניות פרטיות</a>
+          <a href="#">הצהרת נגישות</a>
+          <a href="#">תנאי שימוש</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ FLOATING ══ -->
+  <a href="https://wa.me/972542819656" class="wa-btn" aria-label="שלח הודעת וואטסאפ לסקויה" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <button class="scroll-top" aria-label="חזור לראש העמוד">
+    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="תצוגת תמונה" tabindex="-1">
+    <button class="lightbox-close" aria-label="סגור תמונה">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <img class="lightbox-img" src="" alt="" loading="lazy">
+  </div>
+
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="main.js" defer></script>
+
+</body>
+</html>
