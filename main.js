@@ -17,10 +17,18 @@
     setupDrawer();
     setupCursor();
     setupScrollTop();
+    setupScrollProgress();
+    setupMobileCta();
     setupRipple();
     setupPageTransitions();
     setupLightbox();
     setupWaTracking();
+    setupWaMessages();
+    setupTiltCards();
+    setupMagneticBtns();
+    setupTypewriter();
+    setupToast();
+    setupDynamicYear();
 
     // AOS
     if (typeof AOS !== 'undefined') {
@@ -286,6 +294,161 @@
         }
       });
     });
+  }
+
+  /* ── Scroll progress bar ── */
+  function setupScrollProgress() {
+    const bar = document.querySelector('.scroll-progress');
+    if (!bar) return;
+    function update() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max <= 0) return;
+      bar.style.transform = 'scaleX(' + (window.scrollY / max) + ')';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  /* ── Mobile sticky CTA bar ── */
+  function setupMobileCta() {
+    const bar = document.querySelector('.mobile-cta-bar');
+    const hero = document.querySelector('.hero');
+    if (!bar || !hero) return;
+    function check() {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      bar.classList.toggle('visible', heroBottom < 0);
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  }
+
+  /* ── Dynamic copyright year ── */
+  function setupDynamicYear() {
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.copyright-year').forEach(el => {
+      el.textContent = year;
+    });
+  }
+
+  /* ── WhatsApp pre-filled messages ── */
+  function setupWaMessages() {
+    const messages = {
+      '.wa-btn':           'היי סקויה! ראיתי את האתר שלכם ורוצה לקבל הצעת מחיר.',
+      '[data-wa="cta"]':   'היי! אני מעוניין בפרויקט. אשמח לשמוע פרטים נוספים.',
+    };
+    const phone = '972542819656';
+    Object.entries(messages).forEach(([sel, msg]) => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (el.tagName === 'A') {
+          el.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg);
+        }
+      });
+    });
+    // Also fix any plain wa.me links without a message
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(el => {
+      if (!el.href.includes('?text=')) {
+        const defaultMsg = 'היי סקויה! ראיתי את האתר שלכם ורוצה לקבל הצעת מחיר.';
+        el.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(defaultMsg);
+      }
+    });
+  }
+
+  /* ── 3D Tilt cards ── */
+  function setupTiltCards() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        card.style.transform = 'perspective(800px) rotateY(' + (dx * 8) + 'deg) rotateX(' + (-dy * 6) + 'deg) translateZ(8px)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ── Magnetic buttons (desktop only) ── */
+  function setupMagneticBtns() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const dx = e.clientX - (rect.left + rect.width / 2);
+        const dy = e.clientY - (rect.top + rect.height / 2);
+        btn.style.transform = 'translate(' + (dx * 0.22) + 'px, ' + (dy * 0.28) + 'px)';
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  /* ── Typewriter on hero subtitle ── */
+  function setupTypewriter() {
+    const el = document.querySelector('.hero-sub[data-typewriter]');
+    if (!el) return;
+    const lines = (el.dataset.typewriter || '').split('|');
+    if (lines.length < 2) return;
+    let lineIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+    el.textContent = '';
+
+    function tick() {
+      const current = lines[lineIdx];
+      if (!deleting) {
+        charIdx++;
+        el.textContent = current.slice(0, charIdx);
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(tick, 2200);
+          return;
+        }
+        setTimeout(tick, 55);
+      } else {
+        charIdx--;
+        el.textContent = current.slice(0, charIdx);
+        if (charIdx === 0) {
+          deleting = false;
+          lineIdx = (lineIdx + 1) % lines.length;
+          setTimeout(tick, 400);
+          return;
+        }
+        setTimeout(tick, 28);
+      }
+    }
+    setTimeout(tick, 900);
+  }
+
+  /* ── Toast notification system ── */
+  function setupToast() {
+    window.showToast = function(msg, duration) {
+      duration = duration || 3000;
+      let toast = document.querySelector('.toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.setAttribute('role', 'alert');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => toast.classList.remove('show'), duration);
+    };
+
+    // Trigger toast after contact form submission
+    const contactForm = document.querySelector('form[name="contact"]');
+    if (contactForm) {
+      contactForm.addEventListener('submit', () => {
+        setTimeout(() => window.showToast('ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.', 4000), 500);
+      });
+    }
   }
 
   /* ── CTA tracking ── */

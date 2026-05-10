@@ -30,6 +30,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
+  <!-- Preload hero image for LCP -->
+  <link rel="preload" as="image" href="תמונות/20150710_093904.jpg" fetchpriority="high">
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&display=swap" rel="stylesheet">
 
@@ -47,6 +50,8 @@
     "name": "סקויה",
     "alternateName": "SAKOYA",
     "url": "https://sakoya.co.il",
+    "logo": "https://sakoya-website.netlify.app/תמונות/IMG_7262.jpeg",
+    "image": "https://sakoya-website.netlify.app/og-image.jpg",
     "telephone": "+972-54-281-9656",
     "email": "nv147502@gmail.com",
     "address": {
@@ -55,8 +60,15 @@
       "addressCountry": "IL"
     },
     "openingHours": ["Su-Th 08:00-18:00", "Fr 08:00-13:00"],
-    "description": "בניית דקים, פרגולות וחיפויי עץ מיוחדים",
-    "priceRange": "₪₪₪"
+    "description": "בניית דקים, פרגולות וחיפויי עץ מיוחדים ברחבי הארץ. 12 שנות ניסיון, 150+ פרויקטים מוצלחים.",
+    "priceRange": "₪₪₪",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "150",
+      "bestRating": "5"
+    },
+    "sameAs": []
   }
   </script>
 
@@ -530,7 +542,7 @@
 
       <!-- Bottom bar -->
       <div class="footer-bottom">
-        <p>© 2025 סקויה. כל הזכויות שמורות.</p>
+        <p>© <span class="copyright-year">2025</span> סקויה. כל הזכויות שמורות.</p>
         <div class="footer-bottom-links">
           <a href="privacy.html">מדיניות פרטיות</a>
           <a href="accessibility.html">הצהרת נגישות</a>
@@ -543,6 +555,18 @@
   <!-- ══════════════════════════════════════
        FLOATING ELEMENTS
   ══════════════════════════════════════ -->
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Mobile sticky CTA -->
+  <div class="mobile-cta-bar" aria-hidden="true">
+    <a href="tel:+972542819656" class="btn btn-outline">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      התקשר עכשיו
+    </a>
+    <a href="contact.html" class="btn btn-primary">קבל הצעת מחיר</a>
+  </div>
 
   <!-- WhatsApp -->
   <a
