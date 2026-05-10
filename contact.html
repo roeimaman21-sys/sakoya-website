@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://sakoya.co.il/contact.html">
   <meta property="og:title"       content="צור קשר | סקויה">
   <meta property="og:description" content="קבל הצעת מחיר ללא עלות — טלפון, וואטסאפ או טופס מקוון.">
-  <meta property="og:image"       content="https://sakoya.co.il/og-image.jpg">
+  <meta property="og:image"       content="https://sakoya-website.netlify.app/og-image.jpg">
   <link rel="icon" type="image/jpeg" href="תמונות/IMG_7262.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -340,9 +340,9 @@
                   placeholder="ספרו לנו קצת על הפרויקט — גודל משוער, מיקום, רעיונות, שאלות..."></textarea>
               </div>
 
-              <!-- honeypot anti-spam -->
+              <!-- honeypot anti-spam (field name must match netlify-honeypot attribute) -->
               <div style="display:none;" aria-hidden="true">
-                <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+                <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
               </div>
 
               <div class="form-submit">
@@ -478,7 +478,7 @@
       </div>
       <div class="footer-bottom">
         <p>© 2025 סקויה. כל הזכויות שמורות.</p>
-        <div class="footer-bottom-links"><a href="#">מדיניות פרטיות</a><a href="#">הצהרת נגישות</a><a href="#">תנאי שימוש</a></div>
+        <div class="footer-bottom-links"><a href="privacy.html">מדיניות פרטיות</a><a href="accessibility.html">הצהרת נגישות</a></div>
       </div>
     </div>
   </footer>
@@ -513,7 +513,7 @@
 
       form.addEventListener('submit', e => {
         e.preventDefault();
-        if (document.querySelector('input[name="_honey"]').value) return; // honeypot
+        if (document.querySelector('input[name="bot-field"]').value) return; // honeypot
 
         const name    = document.getElementById('name').value;
         const phone   = document.getElementById('phone').value;

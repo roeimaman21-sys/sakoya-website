@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הצהרת נגישות | סקויה</title>
+  <meta name="description" content="הצהרת הנגישות של אתר סקויה — מחויבותנו לנגישות דיגיטלית לכלל המשתמשים.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://sakoya.co.il/accessibility.html">
+  <link rel="icon" type="image/jpeg" href="תמונות/IMG_7262.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-hero {
+      padding-top: calc(var(--nav-h) + 72px);
+      padding-bottom: 72px;
+      background: var(--color-dark);
+      text-align: center;
+    }
+    .page-hero h1 { color: #fff; }
+    .page-hero p  { color: var(--color-stone); max-width: 540px; margin-inline: auto; }
+
+    .legal-content {
+      max-width: 760px;
+      margin-inline: auto;
+      padding: 80px 0 100px;
+    }
+    .legal-content h2 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      color: var(--color-dark);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-stone);
+    }
+    .legal-content h2:first-child { margin-top: 0; }
+    .legal-content p {
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+    .legal-content ul {
+      list-style: disc;
+      padding-right: 24px;
+      margin-bottom: 16px;
+    }
+    .legal-content ul li {
+      margin-bottom: 8px;
+      font-weight: 300;
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+    .legal-date {
+      font-size: 0.85rem;
+      opacity: 0.55;
+      margin-bottom: 40px;
+      display: block;
+    }
+    .legal-contact-box {
+      background: var(--color-bg2);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-top: 48px;
+    }
+    .legal-contact-box h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .legal-contact-box a { color: var(--color-accent); font-weight: 700; }
+
+    .wcag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-bg2);
+      border: 2px solid var(--color-stone);
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+    .wcag-badge svg { width: 24px; height: 24px; stroke: var(--color-accent); fill: none; stroke-width: 1.8; flex-shrink: 0; }
+    .status-list { list-style: none !important; padding-right: 0 !important; }
+    .status-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-stone);
+      opacity: 1 !important;
+    }
+    .status-list li:last-child { border-bottom: none; }
+    .status-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .status-ok   { background: #27ae60; color: #fff; }
+    .status-part { background: #f39c12; color: #fff; }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <nav class="nav scrolled" role="navigation" aria-label="ניווט ראשי">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="סקויה — עמוד הבית">
+        <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" height="52" loading="eager">
+        <span class="nav-logo-name">SAKOYA</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"        class="nav-link">בית</a></li>
+        <li><a href="about.html"        class="nav-link">אודות</a></li>
+        <li><a href="services.html"     class="nav-link">שירותים</a></li>
+        <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+        <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+        <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+        <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">קבל הצעת מחיר</a>
+      </div>
+      <button class="nav-hamburger" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav id="nav-drawer" class="nav-drawer" aria-label="תפריט נייד">
+    <ul role="list">
+      <li><a href="index.html"        class="nav-link">בית</a></li>
+      <li><a href="about.html"        class="nav-link">אודות</a></li>
+      <li><a href="services.html"     class="nav-link">שירותים</a></li>
+      <li><a href="gallery.html"      class="nav-link">גלריה</a></li>
+      <li><a href="process.html"      class="nav-link">תהליך העבודה</a></li>
+      <li><a href="testimonials.html" class="nav-link">המלצות</a></li>
+      <li><a href="faq.html"          class="nav-link">שאלות נפוצות</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary">קבל הצעת מחיר</a>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="page-hero" aria-labelledby="accessibility-title">
+      <div class="container">
+        <span class="section-label" style="color:var(--color-stone);">מידע משפטי</span>
+        <h1 id="accessibility-title">הצהרת נגישות</h1>
+        <p>אנו מאמינים שכל אדם ראוי לחוויית גלישה נגישה ושוויונית.</p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <div class="legal-content">
+
+          <span class="legal-date">עדכון אחרון: מאי 2025</span>
+
+          <div class="wcag-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            שואפים לעמוד בתקן WCAG 2.1 — רמה AA
+          </div>
+
+          <h2>מבוא</h2>
+          <p>
+            סקויה מחויבת להנגיש את האתר לכלל המשתמשים, לרבות אנשים עם מוגבלויות שונות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות (תשנ"ח–1998) ותקנות הנגישות לשירות הממשל האלקטרוני.
+          </p>
+          <p>
+            אנו עוסקים בשיפור מתמיד של נגישות האתר ומקדישים מאמצים להבטיח שכל תוכן ושירות יהיו נגישים ככל האפשר.
+          </p>
+
+          <h2>מה יושם באתר</h2>
+          <ul class="status-list" role="list">
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>כיווניות RTL מלאה</strong> — כל האתר מיושר לימין בעברית תקנית</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>תיאור טקסטואלי (alt)</strong> לכל תמונות האתר</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>ניווט במקלדת</strong> — ניתן לנווט בכל האתר ללא עכבר, כולל פתיחה וסגירה של גלריה, תפריט ומגירת נייד</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>קפיצת תוכן (Skip Link)</strong> — כפתור "דלג לתוכן הראשי" בראש כל עמוד</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>תגיות ARIA</strong> — role, aria-label, aria-expanded, aria-current, aria-live בכל הרכיבים האינטראקטיביים</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>כותרות מסודרות</strong> — היררכיית H1/H2/H3 תקנית בכל עמוד</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>גופן קריא</strong> — Frank Ruhl Libre, גודל בסיס 16px, line-height 1.8</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>טפסים נגישים</strong> — label לכל שדה, הודעות שגיאה עם role="alert", aria-invalid</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>HTTPS מאובטח</strong> — כל התקשורת מוצפנת</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>רספונסיביות מלאה</strong> — נראות תקינה בנייד, טאבלט ומחשב</span>
+            </li>
+            <li>
+              <span class="status-icon status-ok" aria-label="יושם">✓</span>
+              <span><strong>אנימציות מבוקרות</strong> — ניתן לנטרל אנימציות דרך הגדרות המכשיר (prefers-reduced-motion)</span>
+            </li>
+            <li>
+              <span class="status-icon status-part" aria-label="בתהליך">~</span>
+              <span><strong>ניגודיות צבעים</strong> — רוב האתר עומד ב-AA, חלק מהטקסטים על רקעים בהירים בבדיקה</span>
+            </li>
+          </ul>
+
+          <h2>מה עדיין בתהליך</h2>
+          <ul>
+            <li>בדיקת ניגודיות צבעים מלאה לכל האלמנטים</li>
+            <li>הוספת תיאורי ARIA מורחבים לגלריית התמונות</li>
+            <li>בדיקה מקיפה עם קורא מסך (NVDA / JAWS)</li>
+          </ul>
+
+          <h2>תאימות דפדפנים ומכשירים</h2>
+          <p>האתר נבדק ונמצא תקין בדפדפנים הבאים:</p>
+          <ul>
+            <li>Google Chrome (גרסה עדכנית)</li>
+            <li>Mozilla Firefox (גרסה עדכנית)</li>
+            <li>Microsoft Edge (גרסה עדכנית)</li>
+            <li>Safari (iOS ו-macOS)</li>
+          </ul>
+          <p>נבדק על מכשירי נייד (Android ו-iOS) ובגדלי מסך שונים.</p>
+
+          <h2>בסיס חוקי</h2>
+          <p>
+            הצהרה זו ניתנת מכוח תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע"ג–2013, המחייבות עסקים המספקים שירות לציבור לדאוג לנגישות אתר האינטרנט שלהם.
+          </p>
+
+          <div class="legal-contact-box">
+            <h3>נתקלתם בבעיית נגישות?</h3>
+            <p>אנו מקבלים בברכה כל משוב שיסייע לנו לשפר את נגישות האתר. פנו אלינו:</p>
+            <p>
+              טלפון: <a href="tel:+972542819656">054-281-9656</a><br>
+              דוא"ל: <a href="mailto:nv147502@gmail.com">nv147502@gmail.com</a>
+            </p>
+            <p style="margin-top:12px;font-size:.88rem;opacity:.65;">נטפל בפניות נגישות תוך 5 ימי עסקים.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="תמונות/IMG_7262.jpeg" alt="לוגו סקויה" loading="lazy">
+          <p class="footer-brand-name">SAKOYA</p>
+          <p class="footer-tagline">פרגולות, דקים ועבודות עץ מיוחדות</p>
+          <div class="footer-social" aria-label="רשתות חברתיות">
+            <a href="#" aria-label="פייסבוק" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" aria-label="אינסטגרם" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://wa.me/972542819656" aria-label="וואטסאפ" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ניווט מהיר</h4>
+          <nav class="footer-links" aria-label="קישורים מהירים">
+            <a href="index.html">בית</a><a href="about.html">אודות</a>
+            <a href="services.html">שירותים</a><a href="gallery.html">גלריה</a>
+            <a href="contact.html">צור קשר</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h4>יצירת קשר</h4>
+          <ul class="footer-contact-list" role="list">
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.02 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg><span><a href="tel:+972542819656" style="color:inherit;">054-281-9656</a></span></li>
+            <li class="footer-contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><a href="mailto:nv147502@gmail.com" style="color:inherit;">nv147502@gmail.com</a></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 סקויה. כל הזכויות שמורות.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">מדיניות פרטיות</a>
+          <a href="accessibility.html" aria-current="page">הצהרת נגישות</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/972542819656" class="wa-btn" aria-label="שלח הודעת וואטסאפ" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="חזור לראש העמוד"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
