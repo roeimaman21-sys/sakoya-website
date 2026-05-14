@@ -742,7 +742,7 @@ body.cursor-hover .cursor-ring { width: 60px; height: 60px; }
   flex-wrap: wrap;
   gap: 12px;
   font-size: 0.82rem;
-  opacity: 0.55;
+  opacity: 0.72; /* a11y: was 0.55 — raises contrast to ~5.5:1 on dark footer */
 }
 .footer-bottom a:hover { opacity: 1; color: #fff; }
 .footer-bottom-links { display: flex; gap: 20px; }

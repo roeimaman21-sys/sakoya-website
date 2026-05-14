@@ -194,26 +194,60 @@
     const lbClose  = lightbox ? lightbox.querySelector('.lightbox-close') : null;
     if (!lightbox || !lbImg) return;
 
-    function openLb(src, alt) {
+    let lastFocused = null; // a11y: track triggering element for focus return
+
+    function openLb(src, alt, triggerEl) {
+      lastFocused = triggerEl || document.activeElement;
       lbImg.src = src;
       lbImg.alt = alt || '';
       lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       lightbox.focus();
     }
 
     function closeLb() {
       lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      // a11y: return focus to triggering element
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+    }
+
+    // a11y: focus trap inside lightbox
+    function trapFocus(e) {
+      if (!lightbox.classList.contains('open')) return;
+      const focusable = Array.from(lightbox.querySelectorAll(
+        'button, [href], input, [tabindex]:not([tabindex="-1"])'
+      )).filter(el => !el.disabled);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last  = focusable[focusable.length - 1];
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+        }
+      }
     }
 
     document.querySelectorAll('[data-lightbox]').forEach(el => {
-      el.addEventListener('click', () => openLb(el.dataset.lightbox, el.dataset.alt));
-      el.addEventListener('keydown', e => { if (e.key === 'Enter') openLb(el.dataset.lightbox, el.dataset.alt); });
+      el.addEventListener('click', () => openLb(el.dataset.lightbox, el.dataset.alt, el));
+      // a11y: Enter AND Space for role=button elements
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLb(el.dataset.lightbox, el.dataset.alt, el);
+        }
+      });
     });
 
     if (lbClose) lbClose.addEventListener('click', closeLb);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+    lightbox.addEventListener('keydown', trapFocus);
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLb();
     });
@@ -488,14 +522,18 @@
       return Array.from(document.querySelectorAll('[data-lightbox]'));
     }
 
-    function openLightboxAt(idx) {
+    let lastFocusedGallery = null;
+
+    function openLightboxAt(idx, triggerEl) {
       items = getLightboxItems();
       currentIdx = idx;
+      lastFocusedGallery = triggerEl || document.activeElement;
       const src = items[currentIdx].dataset.lightbox;
       const alt = items[currentIdx].dataset.alt || '';
       lbImg.src = src;
       lbImg.alt = alt;
       lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       lb.focus();
     }
@@ -505,12 +543,28 @@
       if (!trigger) return;
       items = getLightboxItems();
       const idx = items.indexOf(trigger);
-      openLightboxAt(idx >= 0 ? idx : 0);
+      openLightboxAt(idx >= 0 ? idx : 0, trigger);
+    });
+
+    // a11y: Space key support for role=button gallery items
+    document.body.addEventListener('keydown', e => {
+      if (e.key !== ' ' && e.key !== 'Enter') return;
+      const trigger = e.target.closest('[data-lightbox]');
+      if (!trigger) return;
+      e.preventDefault();
+      items = getLightboxItems();
+      const idx = items.indexOf(trigger);
+      openLightboxAt(idx >= 0 ? idx : 0, trigger);
     });
 
     function closeLb() {
       lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      // a11y: return focus to triggering element
+      if (lastFocusedGallery && typeof lastFocusedGallery.focus === 'function') {
+        lastFocusedGallery.focus();
+      }
     }
 
     lb.addEventListener('click', e => {
@@ -533,9 +587,15 @@
 
     lb.addEventListener('keydown', e => {
       if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLb();
+      if (e.key === 'Escape') { closeLb(); return; }
       if (e.key === 'ArrowLeft')  { currentIdx = (currentIdx - 1 + items.length) % items.length; openLightboxAt(currentIdx); }
       if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % items.length; openLightboxAt(currentIdx); }
+      // a11y: focus trap
+      const focusable = Array.from(lb.querySelectorAll('button, [tabindex]:not([tabindex="-1"])')).filter(el => !el.disabled);
+      if (!focusable.length || e.key !== 'Tab') return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
   });
 
