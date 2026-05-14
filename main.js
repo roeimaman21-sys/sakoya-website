@@ -5,6 +5,9 @@
 (function () {
   'use strict';
 
+  /* ── JS detection: add class so CSS can provide no-JS fallbacks ── */
+  document.documentElement.classList.add('js');
+
   /* ── Page transition: fade in ── */
   document.addEventListener('DOMContentLoaded', init);
 
